@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="fema.criteriaquery.model">
+	<class name="Fabricante" table="FABRICANTE">
+		<id name="id" column="ID" type="integer">
+			<generator class="sequence">
+				<param name="sequence">FABRICANTE_SEQUENCE</param>
+			</generator>
+		</id>
+		<property name="nome" column="NOME" type="string" />
+		<property name="origem" column="ORIGEM" type="string" />
+		<property name="fundador" column="FUNDADOR" type="string" />
+		<property name="ceo" column="CEO" type="string" />
+		<property name="anoFundacao" column="ANO_FUNDACAO" type="integer" />
+		<property name="funcionarios" column="FUNCIONARIOS" type="integer" />
+		<property name="valor" column="VALOR" type="big_decimal" />
+		<property name="avaliacao" column="AVALIACAO" type="big_decimal" />
+		<property name="importado" column="IMPORTADO" type="boolean" />
+		<bag name="aparelhos" table="Aparelho">
+			<key column="fabricante" />
+			<one-to-many class="Aparelho" ></one-to-many>
+		</bag>
+	</class>
+</hibernate-mapping>
